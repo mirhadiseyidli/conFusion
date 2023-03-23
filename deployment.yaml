@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: confusion
+   labels:
+      app: confusion
+spec:
+   replicas: 5
+   selector:
+      matchLabels:
+         app: confusion
+   template:
+      metadata:
+         labels:
+            app: confusion
+      spec:
+         containers:
+            - name: confusion
+              image: confusion
+              imagePullPolicy: Never
+              ports:
+                 - containerPort: 3000
